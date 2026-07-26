@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: intake
   m_EditorClassIdentifier: 
   elevatorHeight: 0
-  armAngle: -93.1
+  armAngle: 51.7
   climbArmAngle: 0
   climbWristAngle: 0
   droppyThingAngle: 0

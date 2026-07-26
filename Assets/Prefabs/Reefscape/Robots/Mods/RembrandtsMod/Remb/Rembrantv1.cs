@@ -99,12 +99,18 @@ namespace Prefabs.Reefscape.Robots.Mods._4481.Remb
 
         protected override void Start()
         {
+            
+            RobotGamePieceController.SetPreload(coralStowState);
             base.Start();
             _elevatorTargetHeight = 0;
             _armTargetAngle = 0;
             arm.SetPid(armPid);
             _coralController = RobotGamePieceController.GetPieceByName(ReefscapeGamePieceType.Coral.ToString());
             _coralController.intakes.Add(coralIntake);
+            _coralController.gamePieceStates = new[]
+            {
+        coralStowState,
+            };
         }
 
         private void SetSetpoint(Rembrantsetpoint setpoint)
@@ -116,10 +122,11 @@ namespace Prefabs.Reefscape.Robots.Mods._4481.Remb
         private void UpdateSetpoints()
         {
             elevator.SetTarget(_elevatorTargetHeight);
-            arm.SetTargetAngle(_armTargetAngle).noWrap(10).withAxis(JointAxis.X);
+            arm.SetTargetAngle(_armTargetAngle).withAxis(JointAxis.X);
         }
         private void FixedUpdate()
         {
+            _coralController.SetTargetState(coralStowState);
             switch (CurrentSetpoint)
             {
                 case ReefscapeSetpoints.Stow:
@@ -128,6 +135,7 @@ namespace Prefabs.Reefscape.Robots.Mods._4481.Remb
                 case ReefscapeSetpoints.Intake:
                     SetSetpoint(intake);
                     _coralController.RequestIntake(coralIntake, true);
+                    _coralController.SetTargetState(coralStowState);
                     break;
                 case ReefscapeSetpoints.Place:
                     SetSetpoint(stow);
