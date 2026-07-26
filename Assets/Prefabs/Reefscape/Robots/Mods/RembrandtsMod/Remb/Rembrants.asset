@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamNumber: 4481
   teamName: Rembrants
-  robotPrefab: {fileID: 2534371394911199621, guid: 30888f11f705eb147815a92a19def5d4,
+  robotPrefab: {fileID: 2534371394911199621, guid: 063c98e0e1d2069498cbc2144670cbd4,
     type: 3}
   robotPreloadGamePiece: {fileID: 2185987706872048638, guid: 970bdf84a203d9a4b8dc602974341a07,
     type: 3}

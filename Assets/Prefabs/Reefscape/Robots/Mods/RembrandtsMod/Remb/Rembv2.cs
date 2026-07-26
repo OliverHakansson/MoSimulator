@@ -115,7 +115,6 @@ namespace Prefabs.Reefscape.Robots.Mods._4481.Remb
 
             _coralController = RobotGamePieceController.GetPieceByName(ReefscapeGamePieceType.Coral.ToString());
             _algaeController = RobotGamePieceController.GetPieceByName(ReefscapeGamePieceType.Algae.ToString());
-
             _coralController.gamePieceStates = new[]
             {
         coralStowState,

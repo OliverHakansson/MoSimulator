@@ -99,19 +99,22 @@ namespace Prefabs.Reefscape.Robots.Mods._4481.Remb
 
         protected override void Start()
         {
-            
-            RobotGamePieceController.SetPreload(coralStowState);
+
+
             base.Start();
             _elevatorTargetHeight = 0;
             _armTargetAngle = 0;
             arm.SetPid(armPid);
+            RobotGamePieceController.SetPreload(coralStowState);
             _coralController = RobotGamePieceController.GetPieceByName(ReefscapeGamePieceType.Coral.ToString());
-            _coralController.intakes.Add(coralIntake);
+            Debug.Log("Setti spaghetti");
             _coralController.gamePieceStates = new[]
             {
-        coralStowState,
+                coralStowState
             };
+            _coralController.intakes.Add(coralIntake);
         }
+
 
         private void SetSetpoint(Rembrantsetpoint setpoint)
         {
